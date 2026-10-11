@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find nearby doctors and hospitals by distance, specialty, payment method and visit type.">
+  <title>Nearest Doctor Finder</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand"><span class="brand-icon">✚</span> Nearest Doctor Finder</div>
+      <h1>Find the doctor closest to you, in seconds.</h1>
+      <p>Find hospitals and specialists.</p>
+      <div class="hero-note"><span class="pulse"></span> Find care near you</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-panel">
+      <form id="searchForm" class="search-row">
+        <label class="address-field">
+          <span class="sr-only">Your address or pincode</span>
+          <span class="field-icon">⌖</span>
+          <input id="addressInput" type="text" placeholder="Your address, area or pincode (e.g. Malviya Nagar, Delhi)" autocomplete="street-address">
+        </label>
+        <button class="btn btn-primary" id="searchBtn" type="submit"><span>⌕</span> Find doctors</button>
+        <button class="btn btn-light" id="locationBtn" type="button"><span>◎</span> Use my location</button>
+      </form>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+      <p id="originLabel" class="origin-label" hidden></p>
+      <div class="filters">
+        <div class="filter-group"><label for="specialtyFilter">Specialist</label><select id="specialtyFilter"><option value="any">All specialties</option></select></div>
+        <div class="filter-group"><label for="paymentFilter">Payment</label><select id="paymentFilter"><option value="any">Any payment</option><option value="cash">Cash</option><option value="insurance">Insurance</option></select></div>
+        <div class="filter-group"><label for="visitFilter">Visit type</label><select id="visitFilter"><option value="any">Any visit type</option><option value="opd">OPD</option><option value="ipd">IPD</option></select></div>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="results-heading">
+        <div><p class="eyebrow">YOUR OPTIONS</p><h2 id="resultsTitle">All doctors <span id="resultCount">(…)</span></h2></div>
+        <span id="sortHint" class="sort-hint">Add your address to sort by distance</span>
+      </div>
+      <div id="results" class="results-grid"><div class="loading-card"><span class="spinner"></span><p>Loading doctors from Google Sheets…</p></div></div>
+      <p class="disclaimer">Distances are estimates based on available address/pincode or city coordinates. Confirm details with the hospital before visiting.</p>
+    </section>
+    <footer>Nearest Doctor Finder <span>·</span> </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
